@@ -2,7 +2,9 @@
 // maar ook een manier moeten vinden om hetgeen dat je verzamelt ergens te bundelen. Op deze manier zul je ontdekken hoe je omgaat met scope. Pak vooral het hoofdstuk op EdHub over for-loops er nog eens bij!
 // Tip: je mag hier geen ingebouwde object methoden gebruiken, dus daar hoef je niet naar te kijken.
 
+
 const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
+
 
 /* Opdracht  1: Cum Laude */
 
@@ -13,6 +15,18 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // * Hoe zorg ik ervoor dat dit ook werkt wanneer de array 100 entries bevat?
 // * Hoe zorgt ik ervoor dat wanneer ik een cijfer tegenkom die aan de conditie voldoet, ik dit ergens kan bijhouden?
 // Log het antwoord in de terminal.
+
+let cumLaudeGraduates = 0;
+
+for (let i = 0; i < grades.length; i++) {
+    if (grades[i] >= 8) {
+        cumLaudeGraduates = cumLaudeGraduates + 1
+
+    }
+}
+
+console.log(cumLaudeGraduates);
+
 
 // ---- Verwachte uitkomst: 6
 
@@ -27,9 +41,25 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // cumLaude([6, 4, 5]) geeft 0
 // cumLaude([8, 9, 4, 6, 10]) geeft 3
 
+function cumLaude(arrayNum) {
+    let cumLaudeGraduates = 0;
 
+    for (let i = 0; i < arrayNum.length; i++) {
+        if (arrayNum[i] >= 8) {
+            cumLaudeGraduates = cumLaudeGraduates + 1
 
+        }
+    }
+    return cumLaudeGraduates
+}
 
+const graduation = cumLaude(grades)
+const graduation1 = cumLaude([6, 4, 5])
+const graduation2 = cumLaude([8, 9, 4, 6, 10])
+
+console.log(graduation)
+console.log(graduation1)
+console.log(graduation2)
 /* Opdracht  2: Gemiddeld cijfer */
 
 /* 2a: Script schrijven  */
@@ -40,6 +70,13 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // * Hoe zorgt ik ervoor dat ik alle waardes uit de array kan langslopen, ook als de array wel 100 entries zou bevatten?
 // Log het antwoord in de terminal.
 
+let sum = 0;
+for (let i = 0; i < grades.length; i++) {
+    sum = sum + grades[i]
+}
+
+console.log(sum/grades.length)
+
 // ---- Verwachte uitkomst: 6.642857142857143
 
 
@@ -47,6 +84,24 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // Schrijf een functie genaamd averageGrade, die een array van cijfers verwacht (zoals grades) en het gemiddelde cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 2a.
 // Zorg ervoor dat jouw functie ook werkt als we een andere array willen checken, zoals bijvoorbeeld: [6, 4, 5] of [8, 9, 4, 6, 10].
 // Log het antwoord in de terminal.
+
+function averageGrade (arrayNumber){
+    let sum = 0;
+    for (let i = 0; i < arrayNumber.length; i++) {
+        sum = sum + arrayNumber[i];
+    }
+    return sum /arrayNumber.length;
+}
+
+
+const average = averageGrade(grades)
+const average2 = averageGrade([6, 4, 5])
+const average3 = averageGrade([8, 9, 4, 6, 10])
+
+console.log(average)
+console.log(average2)
+console.log(average3)
+
 
 // ---- Verwachte uitkomsten:
 // averageGrade(grades) geeft 6.642857142857143
@@ -58,8 +113,8 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // Zorg ervoor dat het gemiddelde cijfer dat wordt teruggegeven uit de functie netjes wordt afgerond op twee decimalen.
 // Tip: Google is your best friend!
 
-
-
+const gradeRound = averageGrade(grades)
+console.log(gradeRound.toFixed(0))
 
 /* Bonusopdracht: hoogste cijfer */
 
